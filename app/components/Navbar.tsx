@@ -1,11 +1,12 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Navbar() {
     return (
-        <nav className="navbar flex justify-between ">
+        <nav className="navbar flex justify-between items-center">
             <div className="navbar-left">
-                <a href="/" className="logo">
-                    ShopNow
+                <a href="" className="logo">
+                    Gordito Blendz
                 </a>
             </div>
             <div className="navbar-center">
@@ -14,7 +15,7 @@ export default function Navbar() {
                         <a href="/products">Portfolio</a>
                     </li>
                     <li>
-                        <Link href=".//about">About</Link>
+                        <Link href="/about">About</Link>
                     </li>
                     <li>
                         <a href="/contact">Contact</a>
