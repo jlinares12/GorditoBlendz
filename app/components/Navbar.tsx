@@ -15,6 +15,9 @@ export default function Navbar() {
                     <a className="text-sm font-medium hover:text-primary transition-colors text-secondary" href="#about">About</a>
                     <a className="text-sm font-medium hover:text-primary transition-colors text-secondary" href="#contact">Contact</a>
                 </nav>
+                <button className="md:hidden p-2 text-slate-600 dark:text-slate-300">
+                    <span className="material-symbols-outlined">menu</span>
+                </button>
             </div>
         </header>
     )
