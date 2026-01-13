@@ -1,7 +1,7 @@
 'use server';
 import Image from 'next/image'
 
-export default async function GalleryPreview() {
+export default async function PreviewGallery() {
     return (
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-4 auto-rows-[200px]">
             <div className="col-span-2 row-span-2 group relative overflow-hidden rounded-xl">
