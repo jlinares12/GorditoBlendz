@@ -1,4 +1,5 @@
-import GalleryPreview from "./GalleryPreview"
+import Link from 'next/link'
+import PreviewGallery from "./PreviewGallery"
 
 export default function Preview() {
     return (
@@ -10,13 +11,15 @@ export default function Preview() {
                         Check out our latest cuts. Follow us on Instagram for daily updates.
                     </p>
                 </div>
-                <GalleryPreview/>
-                <div className="mt-8 flex justify-center">
-                    <button className="flex items-center gap-2 rounded-lg border border-border bg-transparent px-6 py-3 text-sm font-bold text-foreground transition hover:bg-surface">
-                        <span className="material-symbols-outlined">grid_view</span>
-                        View Full Gallery
-                    </button>
-                </div>
+                <PreviewGallery/>
+                <Link href="/gallery">
+                    <div className="mt-8 flex justify-center">
+                        <button className=" cursor-pointer flex items-center gap-2 rounded-lg border border-border bg-transparent px-6 py-3 text-sm font-bold text-foreground transition hover:bg-surface">
+                            <span className="material-symbols-outlined">grid_view</span>
+                            View Full Gallery
+                        </button>
+                    </div>
+                </Link>
             </div>
         </section>
     )
