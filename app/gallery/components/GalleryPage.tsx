@@ -10,7 +10,7 @@ export default async function GalleryPage() {
                 alt = "Close up of a clean skin fade haircut from the side"
             />
             <GalleryItem
-                src = "/preview/buzz.jpg"
+                src = "/preview/design_side2.jpg"
                 alt = "Close up of a clean skin fade haircut from the side"
             />
             <GalleryItem
