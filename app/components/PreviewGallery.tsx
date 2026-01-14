@@ -35,7 +35,7 @@ export default async function PreviewGallery() {
             <div className="group relative overflow-hidden rounded-xl">
                 <div className="absolute inset-0 bg-cover bg-center transition duration-500 group-hover:scale-105" data-alt="Man with a buzz cut and a high fade">
                     <Image
-                            src="/preview/buzz.jpg"
+                            src="/preview/design_side2.jpg"
                             fill
                             alt="Man with a buzz cut and a high fade"
                             className="object-cover object-center"
