@@ -12,7 +12,7 @@ export default function BookingSection() {
                     </p>
                 </div>
                 <div className="flex shrink-0">
-                    <button className="flex min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-accent text-black text-base font-bold leading-normal tracking-[0.015em] hover:bg-foreground transition-colors shadow-lg shadow-yellow-900/20">
+                    <button className="flex min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-accent text-background text-base font-bold leading-normal tracking-[0.015em] hover:bg-foreground transition-colors shadow-lg shadow-yellow-900/20">
                         <span className="truncate">Book Appointment</span>
                     </button>
                 </div>
