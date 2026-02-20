@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import CldImage from '@/app/components/cloudinary/CldImage';
 
 interface Props {
     src: string;
@@ -9,7 +9,7 @@ export default function GalleryItem({src, alt}: Props) {
     return (
         <div className="group relative overflow-hidden rounded-xl aspect-[3/4] ">
             <div className="absolute inset-0 bg-cover bg-center transition duration-500 group-hover:scale-105" data-alt={alt}>
-                <Image
+                <CldImage
                         src={src}
                         fill
                         alt={alt}
