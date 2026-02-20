@@ -1,5 +1,5 @@
-'use server';
 import Image from 'next/image'
+import CldImage from './cloudinary/CldImage'
 
 export default async function PreviewGallery() {
     return (
@@ -20,8 +20,8 @@ export default async function PreviewGallery() {
             </div>
             <div className="group relative overflow-hidden rounded-xl">
                 <div className="absolute inset-0 bg-cover bg-center transition duration-500 group-hover:scale-105" data-alt="Side profile of a taper fade/mullet">
-                    <Image
-                            src="/preview/mullet.jpg"
+                    <CldImage
+                            src="https://res.cloudinary.com/dwwvgtx5m/image/upload/v1769117355/geogpyp4staqolweohja.jpg"
                             fill
                             alt="Side profile of a taper fade/mullet"
                             className="object-cover object-center"

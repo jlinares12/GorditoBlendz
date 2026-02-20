@@ -1,5 +1,3 @@
-'use server';
-
 import GalleryItem from "./GalleryItem"
 
 export default async function GalleryPage() {
@@ -22,7 +20,7 @@ export default async function GalleryPage() {
                 alt = "Close up of a clean skin fade haircut from the side"
             />
             <GalleryItem
-                src = "/preview/mullet.jpg"
+                src = "https://res.cloudinary.com/dwwvgtx5m/image/upload/v1769117845/qjquxym3eovvz3zmf7cg.jpg"
                 alt = "Close up of a clean skin fade haircut from the side"
             />
             <GalleryItem
