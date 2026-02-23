@@ -7,41 +7,40 @@ type StoredCredentials = {
   passwordHash: string
 }
 
-function isKvConfigured() {
+function isRedisConfigured() {
   return !!process.env.KV_REST_API_URL && !!process.env.KV_REST_API_TOKEN
 }
 
-async function kvGet<T>(key: string): Promise<T | null> {
-  const { kv } = await import("@vercel/kv")
-  return kv.get<T>(key)
-}
-
-async function kvSet(key: string, value: unknown): Promise<void> {
-  const { kv } = await import("@vercel/kv")
-  await kv.set(key, value)
+async function getRedis() {
+  const { Redis } = await import("@upstash/redis")
+  return new Redis({
+    url: process.env.KV_REST_API_URL!,
+    token: process.env.KV_REST_API_TOKEN!,
+  })
 }
 
 /**
  * Returns stored credentials.
- * - In production (KV configured): reads from Vercel KV, seeds from env vars on first run.
- * - In local dev (no KV): falls back to ADMIN_USERNAME / ADMIN_PASSWORD env vars directly.
+ * - In production (Redis configured): reads from Upstash Redis, seeds from env vars on first run.
+ * - In local dev (no Redis): falls back to ADMIN_USERNAME / ADMIN_PASSWORD env vars directly.
  */
 export async function getCredentials(): Promise<StoredCredentials> {
-  if (!isKvConfigured()) {
+  if (!isRedisConfigured()) {
     const username = process.env.ADMIN_USERNAME ?? "admin"
     const password = process.env.ADMIN_PASSWORD ?? "changeme"
     return { username, passwordHash: await bcrypt.hash(password, 12) }
   }
 
-  const stored = await kvGet<StoredCredentials>(CREDENTIALS_KEY)
+  const redis = await getRedis()
+  const stored = await redis.get<StoredCredentials>(CREDENTIALS_KEY)
   if (stored) return stored
 
-  // Seed KV from env vars the first time
+  // Seed Redis from env vars the first time
   const username = process.env.ADMIN_USERNAME ?? "admin"
   const password = process.env.ADMIN_PASSWORD ?? "changeme"
   const passwordHash = await bcrypt.hash(password, 12)
   const initial: StoredCredentials = { username, passwordHash }
-  await kvSet(CREDENTIALS_KEY, initial)
+  await redis.set(CREDENTIALS_KEY, initial)
   return initial
 }
 
@@ -49,7 +48,7 @@ export async function verifyCredentials(
   username: string,
   password: string
 ): Promise<boolean> {
-  if (!isKvConfigured()) {
+  if (!isRedisConfigured()) {
     return (
       username === (process.env.ADMIN_USERNAME ?? "admin") &&
       password === (process.env.ADMIN_PASSWORD ?? "changeme")
@@ -67,6 +66,7 @@ export async function updateCredentials(
   newUsername: string,
   newPassword: string
 ): Promise<void> {
+  const redis = await getRedis()
   const passwordHash = await bcrypt.hash(newPassword, 12)
-  await kvSet(CREDENTIALS_KEY, { username: newUsername, passwordHash })
+  await redis.set(CREDENTIALS_KEY, { username: newUsername, passwordHash })
 }
