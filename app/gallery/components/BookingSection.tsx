@@ -1,3 +1,5 @@
+import CalBookingButton from "@/app/components/CalBookingButton";
+
 export default function BookingSection() {
     return (
         <div className="bg-surface rounded-2xl overflow-hidden relative border border-foreground/5">
@@ -12,9 +14,9 @@ export default function BookingSection() {
                     </p>
                 </div>
                 <div className="flex shrink-0">
-                    <button className="flex min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-accent text-background text-base font-bold leading-normal tracking-[0.015em] hover:bg-foreground transition-colors shadow-lg shadow-yellow-900/20">
+                    <CalBookingButton className="flex min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-accent text-background text-base font-bold leading-normal tracking-[0.015em] hover:bg-foreground transition-colors shadow-lg shadow-yellow-900/20">
                         <span className="truncate">Book Appointment</span>
-                    </button>
+                    </CalBookingButton>
                 </div>
             </div>
         </div>
