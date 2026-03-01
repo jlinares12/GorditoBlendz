@@ -20,10 +20,8 @@ export default function Hero() {
                             Gordito Blendz specializes in the sharpest looks in Whittier. From artistic designs to fresh fades, we will get you right
                         </p>
                         <div className="flex flex-col gap-3 sm:flex-row">
-                            <Link
-                                href="/gallery"
-                            >
-                                <button className="cursor-pointer h-12 rounded-lg bg-primary px-8 text-base font-bold text-white transition hover:bg-primary/90">
+                            <Link href="/gallery" className="w-full">
+                                <button className="cursor-pointer w-full h-12 rounded-lg bg-primary px-8 text-base font-bold text-white transition hover:bg-primary/90">
                                     View Portfolio
                                 </button>
                             </Link>
