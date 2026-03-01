@@ -1,4 +1,6 @@
 import Image from 'next/image'
+import Link from 'next/link'
+import CalBookingButton from './CalBookingButton'
 
 export default function Hero() {
   return (
@@ -18,12 +20,16 @@ export default function Hero() {
                             Gordito Blendz specializes in the sharpest looks in Whittier. From artistic designs to fresh fades, we will get you right
                         </p>
                         <div className="flex flex-col gap-3 sm:flex-row">
-                            <button className="h-12 rounded-lg bg-primary px-8 text-base font-bold text-white transition hover:bg-primary/90">
-                                View Portfolio
-                            </button>
-                            <button className="flex h-12 items-center justify-center rounded-lg border border-border px-8 text-base font-bold text-foreground transition hover:bg-surface">
+                            <Link
+                                href="/gallery"
+                            >
+                                <button className="cursor-pointer h-12 rounded-lg bg-primary px-8 text-base font-bold text-white transition hover:bg-primary/90">
+                                    View Portfolio
+                                </button>
+                            </Link>
+                            <CalBookingButton className="cursor-pointer flex h-12 items-center justify-center rounded-lg border border-border px-8 text-base font-bold text-foreground transition hover:bg-surface">
                                 Book Appointment
-                            </button>
+                            </CalBookingButton>
                         </div>
                     </div>
                     <div className="relative order-1 lg:order-2 h-[400px] sm:h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl shadow-accent/30">
