@@ -3,7 +3,7 @@
 import { getCalApi } from "@calcom/embed-react";
 import { useEffect } from "react";
 
-const CAL_LINK = "juan-linares-slxgwn/gorditoblendz";
+const CAL_LINK = "devin-linares-vogzpq/haircut";
 
 export default function CalBookingButton({ className, children }: { className?: string; children: React.ReactNode }) {
     useEffect(() => {
